@@ -10,3 +10,6 @@ var list = new List();
 list.AddThingInstagramUserCanControl("Take long breaks from the app", List.Priority.High);
 list.PrintThingsInstagramUserCanControl();
 list.PrintApplicationsStrategy();
+
+var dictionary = new Dictionary();
+dictionary.PrintInspirationalPlayers();
