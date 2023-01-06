@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-namespace CSharpPractice.Practice___Data_structures
+﻿namespace CSharpPractice.Practice___Data_structures
 {
     public class Queue
     {

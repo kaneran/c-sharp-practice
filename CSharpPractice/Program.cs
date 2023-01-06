@@ -3,6 +3,9 @@ using CSharpPractice.Practice___Data_structures;
 
 var queue = new Queue();
 queue.SendMessagesToMe();
-queue.PrintMessages();
 queue.ReadMessages();
 queue.PrintMessages();
+
+var list = new List();
+list.AddThingInstagramUserCanControl("Take long breaks from the app", List.Priority.High);
+list.PrintThingsInstagramUserCanControl();
