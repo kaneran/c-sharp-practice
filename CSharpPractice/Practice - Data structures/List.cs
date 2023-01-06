@@ -11,6 +11,12 @@
             High
         }
 
+        public enum Phone
+        {
+            Main,
+            Secondary
+        }
+
 
         public List()
         {
@@ -34,6 +40,42 @@
             foreach (var thing in _thingsInstagramUserCanControl)
             {
                 Console.WriteLine(thing);
+            }
+        }
+
+        public List<List<(string, Phone)>> GetApplications()
+        {
+            var mainPhoneApplications = new List<(string, Phone)>();
+            var secondaryPhoneApplications = new List<(string, Phone)>();
+            //Ideally, the secondary phone will be used for personal learning so having no social media apps or communications should be prohibited on that phone
+            mainPhoneApplications.Add(("Business apps", Phone.Main));
+            mainPhoneApplications.Add(("Whatsapp", Phone.Main));
+            mainPhoneApplications.Add(("Spotify", Phone.Main));
+            mainPhoneApplications.Add(("Relationships", Phone.Main));
+            mainPhoneApplications.Add(("Email", Phone.Main));
+            mainPhoneApplications.Add(("YouTube", Phone.Main));
+            mainPhoneApplications.Add(("Reliable app to keep up to date on dev stuff", Phone.Main));
+
+            secondaryPhoneApplications.Add(("Spotify", Phone.Secondary));
+            secondaryPhoneApplications.Add(("YouTube", Phone.Secondary));
+            secondaryPhoneApplications.Add(("Podcast", Phone.Secondary));
+
+            return new List<List<(string, Phone)>>() { mainPhoneApplications, secondaryPhoneApplications };
+        }
+
+        public void PrintApplicationsStrategy()
+        {
+            var phoneApplications = GetApplications();
+            Console.WriteLine("Here's a strategy for the applications to be installed on each phone to achieve separation of concerns:");
+            foreach(var phone in phoneApplications)
+            {
+                var applicationCount = phone.Count;
+                var phoneType = phone.Select(p => p.Item2).First();
+                Console.WriteLine($"Total of {applicationCount} applications to be installed and used on {phoneType} phone");
+                foreach(var application in phone)
+                {
+                    Console.WriteLine($"{application.Item1} to be installed and used on {application.Item2} phone");
+                }
             }
         }
 
