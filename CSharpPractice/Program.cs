@@ -13,3 +13,8 @@ list.PrintApplicationsStrategy();
 
 var dictionary = new Dictionary();
 dictionary.PrintInspirationalPlayers();
+
+var linkedList = new LinkedList();
+linkedList.PopulateLondonBridgeList();
+linkedList.AddBridge("Westminster Bridge");
+linkedList.PrintLondonBridgeList();
