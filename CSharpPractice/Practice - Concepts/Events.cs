@@ -25,5 +25,37 @@ namespace CSharpPractice.Practice___Concepts
             bookedPlaneTicket.DynamicInvoke("for user xyz");
             bookedPlaneTicket -= bookPlaneSeat;
         }
+
+
+        private delegate void DepositAdded(decimal amount);
+
+        private static event DepositAdded depositAddedEvent;
+
+        public static void PiggyBankChallenge() {
+            decimal currentAmount = 0;
+            string userInput = "";
+            depositAddedEvent += new DepositAdded(updatePiggyBank);
+            depositAddedEvent += new DepositAdded(checkPiggyBankBalance);
+            do
+            {
+                Console.WriteLine("Enter an amount to deposit");
+                var amount = Console.ReadLine();
+                currentAmount += decimal.Parse(amount);
+                depositAddedEvent(currentAmount);
+            } while (!userInput.Equals("exit"));
+        }
+
+        public static void updatePiggyBank(decimal amount)
+        {
+            Console.WriteLine("Balance amount is: {0}", amount);
+        }
+
+        public static void checkPiggyBankBalance(decimal amount)
+        {
+            if (amount >= 500)
+            {
+                Console.WriteLine("You reached the goal of £500");
+            }
+        }
     }
 }
