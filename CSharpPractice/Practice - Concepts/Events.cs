@@ -34,14 +34,24 @@ namespace CSharpPractice.Practice___Concepts
         public static void PiggyBankChallenge() {
             decimal currentAmount = 0;
             string userInput = "";
-            depositAddedEvent += new DepositAdded(updatePiggyBank);
-            depositAddedEvent += new DepositAdded(checkPiggyBankBalance);
+            //depositAddedEvent += new DepositAdded(updatePiggyBank);
+            //depositAddedEvent += new DepositAdded(checkPiggyBankBalance);
+
+            depositAddedEvent += (amount) => Console.WriteLine("Balance amount is: {0}", amount);
+
+            depositAddedEvent += (amount) => { if (amount >= 500) Console.WriteLine("You reached the goal of £500"); };
+
+
             do
             {
                 Console.WriteLine("Enter an amount to deposit");
                 var amount = Console.ReadLine();
-                currentAmount += decimal.Parse(amount);
-                depositAddedEvent(currentAmount);
+                userInput = amount;
+                if(!userInput.Equals("exit")){
+                    currentAmount += decimal.Parse(amount);
+                    depositAddedEvent(currentAmount);
+                }
+                
             } while (!userInput.Equals("exit"));
         }
 
