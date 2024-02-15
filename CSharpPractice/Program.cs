@@ -7,4 +7,4 @@ using System.Text;
 using DateTime = CSharpPractice.Practice___Concepts.DateTime;
 
 
-Events.PiggyBankChallenge();
+Interfaces.Execute();
