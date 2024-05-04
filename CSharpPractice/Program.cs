@@ -7,4 +7,5 @@ using System.Text;
 using DateTime = CSharpPractice.Practice___Concepts.DateTime;
 
 
-BinaryTree.TraverseBinaryTree();
+//BinaryTree.TraverseBinaryTree();
+CSharpPractice.Practice___Data_structures.Tuple.Test();
